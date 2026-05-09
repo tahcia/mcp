@@ -1,0 +1,41 @@
+{
+  "mcpb_version": "0.1",
+  "manifest_version": "0.3",
+  "name": "tahcia",
+  "display_name": "Tahcia",
+  "version": "1.0.1",
+  "description": "The browser execution layer for AI. Control, record and replay workflows line-by-line.",
+  "author": {
+    "name": "Darren Gozali.",
+    "email": "admin@tahcia.com"
+  },
+  "server": {
+    "type": "binary",
+    "entry_point": "./tahcia-mcp",
+    "mcp_config": {
+      "command": "${__dirname}/tahcia-mcp",
+      "args": [],
+      "env": {
+        "TAHCIA_API_KEY": "${user_config.apiKey}",
+        "ENVIRONMENT": "${user_config.environment}"
+      }
+    }
+  },
+  "tools_generated": true,
+  "user_config": {
+    "apiKey": {
+      "type": "string",
+      "title": "Tahcia API Key",
+      "description": "Your Tahcia API Key for pay-per-line execution",
+      "sensitive": true,
+      "required": true
+    },
+    "environment": {
+      "type": "string",
+      "title": "Environment",
+      "description": "Production or Staging environment",
+      "default": "production"
+    }
+  },
+  "license": "Proprietary"
+}
